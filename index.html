@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Продажи ЖК «МБ»</title>
+<meta name="description" content="Аналитический дашборд продаж квартир в ЖК «МБ»: шахматка продаж, динамика по неделям, менеджеры и комнатность с кросс-фильтрацией.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <h1>ЖК «МБ»: лучше всего продаются квартиры с видом на сад и реку, хуже всего — с окнами в соседний корпус</h1>
+  <p class="sub">Продажи с марта по сентябрь 2026 года. 367 квартир в 6 корпусах: каждое окно на фасаде — одна квартира.</p>
+  <div class="filters" id="filters"></div>
+
+  <div class="facts" id="facts"></div>
+
+  <div class="grid">
+    <section class="card main">
+      <h2>Шахматка продаж: какие квартиры продаются лучше и хуже</h2>
+      <p class="q">По вертикали — этаж, по горизонтали — корпус и сторона фасада. Под фасадом — что видно из окон и доля проданных.</p>
+      <div id="main"></div>
+    </section>
+
+    <aside class="side">
+
+      <section class="card">
+        <h2>Динамика продаж по неделям</h2>
+        <p class="q">Растут ли продажи? Выделите недели мышью — дашборд покажет только эти сделки</p>
+        <div id="weeks"></div>
+        <p class="note" id="weeksNote"></p>
+      </section>
+
+      <section class="card">
+        <h2>Менеджеры</h2>
+        <p class="q">Выручка, млрд ₽ · число сделок; скидка — % от прайса; дней от обращения до сделки</p>
+        <div id="managers"></div>
+        <div class="legend-mini"><span><i style="background:#4fae96"></i>сделки по месяцам, мар–сен</span><span><i style="background:#f0c6bd"></i>месяц без сделок</span></div>
+        <p class="note" id="managersNote"></p>
+      </section>
+
+      <section class="card">
+        <h2>Однушки, двушки, трёшки</h2>
+        <p class="q">Сколько продано из всех квартир с таким числом комнат</p>
+        <div id="rooms"></div>
+        <div class="legend-mini"><span><i style="background:#86cdb8"></i>продано</span><span><i style="background:#e4e7ea"></i>продано вне фильтра</span><span><i style="background:#fff;border:1px solid #c9bdb1"></i>в продаже</span></div>
+        <p class="note" id="roomsNote"></p>
+      </section>
+    </aside>
+  </div>
+  <p class="foot">Данные: выгрузка продаж ЖК «МБ» на 30.09.2026. Выручка — сумма сделок с учётом скидок; скидки — разница между прайсовой стоимостью и суммой сделки.</p>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script src="dashboard.js"></script>
+</body>
+</html>
